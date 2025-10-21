@@ -47,8 +47,7 @@ Follow these steps to set up the environment:
     cd -
     ```
 
-5. Download μFormer model weights:
-   Download the following files from **[Figshare](https://figshare.com/articles/figure/_Former_checkpoint_files_used_in_Search/30227557)** into `src/flexs/flexs/landscapes/landscape/muformer/`:
+5. Download μFormer model weights: put the following two files from **[Figshare](https://figshare.com/articles/figure/_Former_checkpoint_files_used_in_Search/30227557)** into `src/flexs/flexs/landscapes/landscape/muformer/`:
    - `ur50-pcomb-prot_pmlm_1b-3x16-ckpt-checkpoint_best.pt`
    - `muformer-l-BLAT_ECOLX_Ranganathan2015_CFX.pt`
 

@@ -182,7 +182,7 @@ def main(args):
                 rounds=10,
                 log_file=f'efficiency/{args.method}/{args.landscape}/{sequences_batch_size}_{model_queries_per_batch}_{args.run}.csv',
             )
-        elif 'musearch' in args.method:
+        elif args.method == 'musearch':
             musearch_args = argparse.Namespace(
                 score_threshold=-np.inf,
                 horizon=5,
