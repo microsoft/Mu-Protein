@@ -106,7 +106,10 @@ class PolicyValueNet():
                                     weight_decay=self.l2_const)
 
         if model_file:
-            net_params = torch.load(model_file, map_location=self.device)
+            # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+            # Uncomment the line below only after confirming the checkpoint source is trusted.
+            # net_params = torch.load(model_file, map_location=self.device)
+            print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
             self.policy_value_net.load_state_dict(net_params)
 
     def policy_value(self, state_batch):

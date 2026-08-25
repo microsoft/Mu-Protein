@@ -235,7 +235,10 @@ class Trainer(object):
             # print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
             # if self.distributed:
             #     torch.distributed.barrier()
-            pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+            # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+            # Uncomment the line below only after confirming the checkpoint source is trusted.
+            # pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+            print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
             model_tmp = self.get_bare_model(self.models[i])
             model_dict = model_tmp.state_dict()
             model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
@@ -253,7 +256,10 @@ class Trainer(object):
         # print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
         # if self.distributed:
         #     torch.distributed.barrier()
-        pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+        # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+        # Uncomment the line below only after confirming the checkpoint source is trusted.
+        # pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+        print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
         model_tmp = self.get_bare_model(model)
         model_dict = model_tmp.state_dict()
         model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
@@ -271,7 +277,10 @@ class Trainer(object):
         # print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
         # if self.distributed:
         #     torch.distributed.barrier()
-        pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+        # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+        # Uncomment the line below only after confirming the checkpoint source is trusted.
+        # pt = torch.load(checkpoint_path,map_location=torch.device('cpu'))
+        print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
         model_tmp = self.get_bare_model(model)
         model_dict = model_tmp.state_dict()
         model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
