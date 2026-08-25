@@ -173,7 +173,10 @@ class Trainer(object):
             checkpoint_path = f'{checkpoint_dir}/model_{i + 1}.pt'
             self.logger.info('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
             print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
-            pt = torch.load(checkpoint_path)
+            # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+            # Uncomment the line below only after confirming the checkpoint source is trusted.
+            # pt = torch.load(checkpoint_path)
+            print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
             model_dict = self.models[i].state_dict()
             model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
             model_dict.update(model_pretrained_dict)
@@ -184,7 +187,10 @@ class Trainer(object):
     def load_single_pretrained_model(self, checkpoint_path, model=None, optimizer=None, is_resume=False):
         self.logger.info('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
         print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
-        pt = torch.load(checkpoint_path)
+        # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+        # Uncomment the line below only after confirming the checkpoint source is trusted.
+        # pt = torch.load(checkpoint_path)
+        print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
         model_dict = model.state_dict()
         model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
         model_dict.update(model_pretrained_dict)
@@ -195,7 +201,10 @@ class Trainer(object):
     def load_only_single_pretrained_model(self, checkpoint_path, model=None):
         self.logger.info('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
         # print('[ INFO ] Load pretrained model from [{}]'.format(checkpoint_path))
-        pt = torch.load(checkpoint_path)
+        # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+        # Uncomment the line below only after confirming the checkpoint source is trusted.
+        # pt = torch.load(checkpoint_path)
+        print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
         model_dict = model.state_dict()
         model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
         model_dict.update(model_pretrained_dict)

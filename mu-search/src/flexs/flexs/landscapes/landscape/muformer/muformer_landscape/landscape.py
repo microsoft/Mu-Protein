@@ -42,7 +42,10 @@ def load_ckpt(args):
             joint_mode_enabled=args.joint_mode_enabled, joint_method=args.joint_method).to(args.device)
     
     # Zero-shot: comment out the following line
-    pt = torch.load(args.muformer_model)
+    # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+    # Uncomment the line below only after confirming the checkpoint source is trusted.
+    # pt = torch.load(args.muformer_model)
+    print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
     model_dict = model.state_dict()
     model_pretrained_dict = {k: v for k, v in pt['model_state_dict'].items() if k in model_dict}
     model_dict.update(model_pretrained_dict)

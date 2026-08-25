@@ -126,7 +126,10 @@ class GwgPairSampler(torch.nn.Module):
         """
         # Load model weights from checkpoint file
         predictor_path = "/home/v-zhaozhiyu/code/GGS/ckpt/AAV/mutations_7/percentile_0.0_0.3/unsmoothed/predictor/predictor.ckpt"
-        mdl_info = torch.load(predictor_path, map_location=self.device)
+        # SECURITY: torch.load disabled to comply with the twin flames security incident (see microsoft/Mu-Protein#39).
+        # Uncomment the line below only after confirming the checkpoint source is trusted.
+        # mdl_info = torch.load(predictor_path, map_location=self.device)
+        print('[ WARNING ] torch.load is disabled due to the twin flames security incident; uncomment it in this file to restore loading behavior.')
 
         # Initialize the CNN model
         predictor = BaseCNN(n_tokens=len(self.alphabet), alphabet=self.alphabet, kernel_size=5, input_size=256, dropout=0.0, make_one_hot=False, activation='relu', linear=True)
